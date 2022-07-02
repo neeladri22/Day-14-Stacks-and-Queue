@@ -6,10 +6,31 @@ using System.Threading.Tasks;
 
 namespace StackAndQueue
 {
-    internal class Program
-    {
+	internal class Program
+	{
 		static void Main(string[] args)
 		{
+			Queue queue = new Queue(3);
+
+			queue.Enqueue(56);
+			queue.Enqueue(30);
+			queue.Enqueue(70);
+			Console.WriteLine("\n");
+
+			var tc1 = queue.Dequeue();
+			Console.WriteLine("Dequeue : " + tc1);
+			Console.WriteLine("\n");
+
+			var tc2 = queue.Dequeue();
+			Console.WriteLine("Dequeue : " + tc2);
+			Console.WriteLine("\n");
+
+			var tc3 = queue.Dequeue();
+			Console.WriteLine("Dequeue : " + tc3);
+			Console.WriteLine("\n");
+
+
+			/*
 			Console.WriteLine("Welcome Creating Queue");
 			Queue queue = new Queue(3);
 
@@ -17,7 +38,7 @@ namespace StackAndQueue
 			queue.Enqueue(56);
 			queue.Enqueue(30);
 			queue.Enqueue(70);
-			/*
+			
 			Stack stack = new Stack(3);
 			stack.Push(56);
 			stack.Push(30);
@@ -103,6 +124,7 @@ namespace StackAndQueue
 		}
 		*/
 
+		// Creating Queue class
 		public class Queue
 		{
 
@@ -131,7 +153,21 @@ namespace StackAndQueue
 				Console.WriteLine(data);
 				return true;
 			}
-		}
+			// Creating Denqueue method to Remove the element from the Queue
+			public int Dequeue()
+			{
+				if (front == -1)
+				{
+					Console.WriteLine("queue is empty");
+					return default(int);
+				}
+				int ob = obj[front++];
+				if (front > rear)
+					front = rear = -1;
+				return ob;
+			}
 
+
+		}
 	}
-}
+}	
