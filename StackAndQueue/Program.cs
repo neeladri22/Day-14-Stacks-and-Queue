@@ -10,6 +10,14 @@ namespace StackAndQueue
     {
 		static void Main(string[] args)
 		{
+			Console.WriteLine("Welcome Creating Queue");
+			Queue queue = new Queue(3);
+
+			//Adding Elemt into Queue
+			queue.Enqueue(56);
+			queue.Enqueue(30);
+			queue.Enqueue(70);
+			/*
 			Stack stack = new Stack(3);
 			stack.Push(56);
 			stack.Push(30);
@@ -38,9 +46,11 @@ namespace StackAndQueue
 
 			var tc7 = stack.Peek();
 			Console.WriteLine("Peek :" + tc7);
-
+			*/
 
 		}
+		/*
+
 		// Craeting Stack class
 		public class Stack
 		{
@@ -91,5 +101,37 @@ namespace StackAndQueue
 			}
 
 		}
+		*/
+
+		public class Queue
+		{
+
+			int capacity;
+			int[] obj;
+			int front = -1, rear = -1;
+
+			// Creating Queue method
+			public Queue(int capacity)
+			{
+				this.capacity = capacity;
+				obj = new int[capacity];
+			}
+
+			// Creating Enqueue method to insert the element into the Queue
+			public bool Enqueue(int data)
+			{
+				if (rear == capacity - 1)
+				{
+					Console.WriteLine("Que is Full");
+					return false;
+				}
+				if (rear == -1)
+					front++;
+				obj[++rear] = data;
+				Console.WriteLine(data);
+				return true;
+			}
+		}
+
 	}
 }
